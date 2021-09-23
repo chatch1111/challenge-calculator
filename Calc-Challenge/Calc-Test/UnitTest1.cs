@@ -1,3 +1,4 @@
+using System;
 using Xunit;
 using Calc_Challenge;
 
@@ -58,6 +59,20 @@ namespace Calc_Test
             var calculator = new Calculator();
 
             Assert.Equal(expected, calculator.Add(testNums.Split(',')));
+        }
+
+        [Fact]
+        public void TestAddNewLine()
+        {
+            string testNums = "1\n2,3";
+            string expected = "6";
+
+            var calculator = new Calculator();
+
+            Assert.Equal(expected, calculator.Add(testNums.Split(
+                new[] { "\r\n", "\r", "\n", "," },
+                StringSplitOptions.None
+            )));
         }
     }
 }

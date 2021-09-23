@@ -13,8 +13,8 @@ namespace Calc_Challenge
             int temp = 0;
             int num = 0;
 
-            if (nums.Length > 2)
-                throw new Exception("Too Many Numbers");
+            /*if (nums.Length > 2)
+                throw new Exception("Too Many Numbers");*/
 
             for(int index = 0; index < nums.Length; ++index)
             {

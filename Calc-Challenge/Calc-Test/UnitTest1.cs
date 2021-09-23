@@ -48,5 +48,16 @@ namespace Calc_Test
 
             Assert.Equal(expected, calculator.Add(testNums.Split(',')));
         }
+
+        [Fact]
+        public void TestAddNoMax()
+        {
+            string testNums = "1,2,3,4,5,6,7,8,9,10,11,12";
+            string expected = "78";
+
+            var calculator = new Calculator();
+
+            Assert.Equal(expected, calculator.Add(testNums.Split(',')));
+        }
     }
 }

@@ -6,7 +6,7 @@ namespace Calc_Test
 {
     public class UnitTest1
     {
-        [Fact]
+        [Fact (Skip = "not used")]
         public void TestAdd()
         {
             string testNums = "1,5000";
@@ -29,7 +29,7 @@ namespace Calc_Test
             Assert.Equal(expected, calculator.Add(testNums.Split(',')));
         }
 
-        [Fact]
+        [Fact (Skip = "not used")]
         public void TestAddSingle()
         {
             string testNums = "20";
@@ -40,7 +40,7 @@ namespace Calc_Test
             Assert.Equal(expected, calculator.Add(testNums.Split(',')));
         }
 
-        [Fact]
+        [Fact(Skip = "not used")]
         public void TestAddInvalid()
         {
             string testNums = "5,tyty";
@@ -51,7 +51,7 @@ namespace Calc_Test
             Assert.Equal(expected, calculator.Add(testNums.Split(',')));
         }
 
-        [Fact]
+        [Fact (Skip = "not used")]
         public void TestAddNoMax()
         {
             string testNums = "1,2,3,4,5,6,7,8,9,10,11,12";
@@ -62,7 +62,7 @@ namespace Calc_Test
             Assert.Equal(expected, calculator.Add(testNums.Split(',')));
         }
 
-        [Fact]
+        [Fact (Skip = "not used")]
         public void TestAddNewLine()
         {
             string testNums = "1\n2,3";
@@ -74,6 +74,17 @@ namespace Calc_Test
                 new[] { "\r\n", "\r", "\n", "," },
                 StringSplitOptions.None
             )));
+        }
+
+        [Fact]
+        public void TestAddLimited()
+        {
+            string testNums = "2,1001,6";
+            string expected = "8";
+
+            var calculator = new Calculator();
+
+            Assert.Equal(expected, calculator.Add(testNums.Split(',')));
         }
     }
 }

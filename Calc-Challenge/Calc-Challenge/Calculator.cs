@@ -4,20 +4,20 @@ using System.Text;
 
 namespace Calc_Challenge
 {
-    public class Calculator
+    public abstract class Calculator
     {
-        const int max = 1000;
+        //const int max = 1000;
         public Calculator() { }
 
-        public string Add(string[] nums)
-        {
+        public abstract string Add(string[] nums);
+        /*{
             int temp = 0;
             int num = 0;
-            /*bool hasNegatives = false;
-            string exceptMessage = "";*/
+            bool hasNegatives = false;
+            string exceptMessage = "";
 
-            /*if (nums.Length > 2)
-                throw new Exception("Too Many Numbers");*/
+            if (nums.Length > 2)
+                throw new Exception("Too Many Numbers");
 
             for (int index = 0; index < nums.Length; ++index)
             {
@@ -30,11 +30,11 @@ namespace Calc_Challenge
 
             }
 
-            /*if (hasNegatives)
-                throw new Exception("Negative Numbers Entered: " + exceptMessage);*/
+            if (hasNegatives)
+                throw new Exception("Negative Numbers Entered: " + exceptMessage);
 
             return temp.ToString();
-        }
+        }*/
     }
 }
 

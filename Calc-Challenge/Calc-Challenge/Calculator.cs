@@ -12,6 +12,8 @@ namespace Calc_Challenge
         {
             int temp = 0;
             int num = 0;
+            bool hasNegatives = false;
+            string exceptMessage = "";
 
             /*if (nums.Length > 2)
                 throw new Exception("Too Many Numbers");*/
@@ -19,8 +21,23 @@ namespace Calc_Challenge
             for(int index = 0; index < nums.Length; ++index)
             {
                 int.TryParse(nums[index], out num);
-                temp += num;
+
+                if(num < 0)
+                {
+                    hasNegatives = true;
+
+                    exceptMessage += nums[index];
+
+                    if (index < nums.Length)
+                        exceptMessage += ",";
+                }
+
+                if(!hasNegatives)
+                    temp += num;
             }
+
+            if (hasNegatives)
+                throw new Exception("Negative Numbers Entered: " + exceptMessage);
 
             return temp.ToString();
         }

@@ -17,7 +17,8 @@ namespace Calc_Test
             Assert.Equal(expected, calculator.Add(testNums.Split(',')));
         }
 
-        [Fact]
+        [Fact (Skip = "not used")]
+       
         public void TestAddNeg()
         {
             string testNums = "4,-3";

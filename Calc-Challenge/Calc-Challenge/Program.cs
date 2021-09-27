@@ -7,7 +7,7 @@ namespace Calc_Challenge
         static void Main(string[] args)
         {
 
-            var calculator = new CustomCalcNDelim();
+            var calculator = new CustomCalcNLengthNDelim();
             string[] numbers;
 
             numbers = calculator.CustomSplit(args[0]);

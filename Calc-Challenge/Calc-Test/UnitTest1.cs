@@ -115,7 +115,7 @@ namespace Calc_Test
             string testNums = "//[***]\n11***22***33";
             string expected = "66";
 
-            var calculator = new CustomCalcNDelim();
+            var calculator = new CustomCalcNLengthNDelim();
 
             Assert.Equal(expected, calculator.Add(calculator.CustomSplit(testNums)));
         }
@@ -124,11 +124,13 @@ namespace Calc_Test
         public void TestAddCustomDelimNLengthNDelim()
         {
             string testNums = "//[*][!!][r9r]\n11r9r22*hh*33!!44";
-            string expected = "0";
+            string expected = "110";
 
-            var calculator = new CustomCalcNDelim();
+            var calculator = new CustomCalcNLengthNDelim();
 
             Assert.Equal(expected, calculator.Add(calculator.CustomSplit(testNums)));
         }
+
+
     }
 }

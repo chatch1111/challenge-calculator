@@ -9,7 +9,7 @@ namespace Calc_Challenge
 
         public CustomCalc() { }
 
-        public string[] CustomSplit(string toSplit)
+        public override string[] CustomSplit(string toSplit)
         {
 
             string[] tempVal = toSplit.Split(
@@ -24,22 +24,5 @@ namespace Calc_Challenge
 
             return retVal;
         }
-
-        public override string Add(string[] input)
-        {
-            int num = 0;
-            int temp = 0;
-
-            for (int index = 0; index < input.Length; ++index)
-            {
-                int.TryParse(input[index], out num);
-
-                temp += num;
-
-            }
-
-            return temp.ToString();
-        }
-
     }
 }

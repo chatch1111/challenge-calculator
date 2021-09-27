@@ -4,46 +4,21 @@ using System.Text;
 
 namespace Calc_Challenge
 {
-    public abstract class Calculator
+    public abstract class Calculator : ICustomSplit
     {
-        //const int max = 1000;
-        public Calculator() { }
-
-        public abstract string Add(string[] nums);
-        /*{
+        const int max = 1000;
+        public string Add(string[] nums)
+        {
             int temp = 0;
             int num = 0;
             bool hasNegatives = false;
             string exceptMessage = "";
 
-            if (nums.Length > 2)
-                throw new Exception("Too Many Numbers");
-
             for (int index = 0; index < nums.Length; ++index)
             {
                 int.TryParse(nums[index], out num);
 
-                if (num < max)
-                {
-                    temp += num;
-                }
-
-            }
-
-            if (hasNegatives)
-                throw new Exception("Negative Numbers Entered: " + exceptMessage);
-
-            return temp.ToString();
-        }*/
-    }
-}
-
-/*
- * for(int index = 0; index < nums.Length; ++index)
-            {
-                int.TryParse(nums[index], out num);
-
-                if(num < 0)
+                if (num < 0)
                 {
                     hasNegatives = true;
 
@@ -52,8 +27,23 @@ namespace Calc_Challenge
                     if (index < nums.Length)
                         exceptMessage += ",";
                 }
-
-                if(!hasNegatives)
+                else if (num < max)
+                {
                     temp += num;
+                }
+                        
             }
- */
+
+            if (hasNegatives)
+            {
+                Console.WriteLine(temp.ToString());
+                throw new Exception("Negative Numbers Entered: " + exceptMessage);
+            }
+                
+
+            return temp.ToString();
+        }
+
+        public abstract string[] CustomSplit(string toSplit);
+    }
+}

@@ -10,23 +10,7 @@ namespace Calc_Challenge
 
         public CustomCalcNLengthNDelim() { }
 
-        public override string Add(string[] input)
-        {
-            int num = 0;
-            int temp = 0;
-
-            for (int index = 0; index < input.Length; ++index)
-            {
-                int.TryParse(input[index], out num);
-
-                temp += num;
-
-            }
-
-            return temp.ToString();
-        }
-
-        public string[] CustomSplit(string toSplit)
+        public override string[] CustomSplit(string toSplit)
         {
             string[] arr = Regex.Matches(toSplit, @"(?<=\[).+?(?=\])")
                         .Cast<Match>()

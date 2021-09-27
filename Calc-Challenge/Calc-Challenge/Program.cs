@@ -7,12 +7,12 @@ namespace Calc_Challenge
         static void Main(string[] args)
         {
 
-            var calculator = new CustomCalc();
+            var calculator = new CustomCalcNDelim();
             string[] numbers;
 
             numbers = calculator.CustomSplit(args[0]);
 
-            //numbers = calculator.CustomSplit("//,\n2,ff,100");
+            //numbers = calculator.CustomSplit("//[***]\n11***22***33");
 
             try
             {

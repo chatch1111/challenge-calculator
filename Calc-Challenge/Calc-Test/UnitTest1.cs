@@ -87,7 +87,7 @@ namespace Calc_Test
             Assert.Equal(expected, calculator.Add(testNums.Split(',')));
         }
 
-        [Fact]
+        [Fact (Skip = "not used")]
         public void TestAddCustomDelim()
         {
             string testNums = "//#\n2#5";
@@ -98,13 +98,35 @@ namespace Calc_Test
             Assert.Equal(expected, calculator.Add(calculator.CustomSplit(testNums)));
         }
 
-        [Fact]
+        [Fact (Skip = "not used")]
         public void TestAddCustomDelim1()
         {
             string testNums = "//,\n2,ff,100";
             string expected = "102";
 
             var calculator = new CustomCalc();
+
+            Assert.Equal(expected, calculator.Add(calculator.CustomSplit(testNums)));
+        }
+
+        [Fact]
+        public void TestAddCustomDelimNLength()
+        {
+            string testNums = "//[***]\n11***22***33";
+            string expected = "66";
+
+            var calculator = new CustomCalcNDelim();
+
+            Assert.Equal(expected, calculator.Add(calculator.CustomSplit(testNums)));
+        }
+
+        [Fact]
+        public void TestAddCustomDelimNLengthNDelim()
+        {
+            string testNums = "//[*][!!][r9r]\n11r9r22*hh*33!!44";
+            string expected = "0";
+
+            var calculator = new CustomCalcNDelim();
 
             Assert.Equal(expected, calculator.Add(calculator.CustomSplit(testNums)));
         }

@@ -12,8 +12,6 @@ namespace Calc_Challenge
 
             numbers = calculator.CustomSplit(args[0]);
 
-            //numbers = calculator.CustomSplit("//[***]\n11***22***33");
-
             try
             {
                 Console.WriteLine(calculator.Add(numbers));

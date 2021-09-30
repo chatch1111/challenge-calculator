@@ -47,7 +47,10 @@ namespace Calc_Challenge
                 numbers = calculator.CustomSplit(args[0]);
                 //numbers = calculator.CustomSplit("4,-3,-2");
 
+                Console.WriteLine(calculator.Operator(numbers, Operations.Add));
                 Console.WriteLine(calculator.Operator(numbers, Operations.Subtract));
+                Console.WriteLine(calculator.Operator(numbers, Operations.Divide));
+                Console.WriteLine(calculator.Operator(numbers, Operations.Multiply));
             }
             catch(Exception e)
             {

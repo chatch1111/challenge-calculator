@@ -53,3 +53,4 @@ Calc-Challenge/Calc-Challenge/obj/Debug/netcoreapp3.1/Calc-Challenge.csproj.File
 Calc-Challenge/Calc-Test/obj/Debug/netcoreapp3.1/Calc-Test.csproj.CopyComplete
 Calc-Challenge/Calc-Test/obj/Debug/netcoreapp3.1/Calc-Test.csproj.FileListAbsolute.txt
 Calc-Challenge/Calc-Challenge/Program
+*.testlog

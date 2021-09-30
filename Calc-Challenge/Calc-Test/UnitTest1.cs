@@ -6,129 +6,129 @@ namespace Calc_Test
 {
     public class UnitTest1
     {
-        [Fact (Skip = "not used")]
+        [Fact]
         public void TestAdd()
         {
-            string testNums = "1,5000";
-            string expected = "5001";
+            var testNums = "1,5000";
+            var expected = "1";
 
             var calculator = new CustomCalc();
 
-            Assert.Equal(expected, calculator.Add(testNums.Split(',')));
+            Assert.Equal(expected, calculator.Operator(testNums.Split(','), Operations.Add));
         }
 
-        [Fact (Skip = "not used")]
+        [Fact]
        
         public void TestAddNeg()
         {
-            string testNums = "4,-3";
-            string expected = "1";
+            var testNums = "4,-3";
+            var expected = "1";
 
             var calculator = new CustomCalc();
 
-            Assert.Equal(expected, calculator.Add(testNums.Split(',')));
+            Assert.Equal(expected, calculator.Operator(testNums.Split(','), Operations.Add));
         }
 
-        [Fact (Skip = "not used")]
+        [Fact]
         public void TestAddSingle()
         {
-            string testNums = "20";
-            string expected = "20";
+            var testNums = "20";
+            var expected = "20";
 
             var calculator = new CustomCalc();
 
-            Assert.Equal(expected, calculator.Add(testNums.Split(',')));
+            Assert.Equal(expected, calculator.Operator(testNums.Split(','), Operations.Add));
         }
 
-        [Fact(Skip = "not used")]
+        [Fact]
         public void TestAddInvalid()
         {
-            string testNums = "5,tyty";
-            string expected = "5";
+            var testNums = "5,tyty";
+            var expected = "5";
 
             var calculator = new CustomCalc();
 
-            Assert.Equal(expected, calculator.Add(testNums.Split(',')));
+            Assert.Equal(expected, calculator.Operator(testNums.Split(','), Operations.Add));
         }
 
-        [Fact (Skip = "not used")]
+        [Fact]
         public void TestAddNoMax()
         {
-            string testNums = "1,2,3,4,5,6,7,8,9,10,11,12";
-            string expected = "78";
+            var testNums = "1,2,3,4,5,6,7,8,9,10,11,12";
+            var expected = "78";
 
             var calculator = new CustomCalc();
 
-            Assert.Equal(expected, calculator.Add(testNums.Split(',')));
+            Assert.Equal(expected, calculator.Operator(testNums.Split(','), Operations.Add));
         }
 
-        [Fact (Skip = "not used")]
+        [Fact]
         public void TestAddNewLine()
         {
-            string testNums = "1\n2,3";
-            string expected = "6";
+            var testNums = "1\n2,3";
+            var expected = "6";
 
             var calculator = new CustomCalc();
 
-            Assert.Equal(expected, calculator.Add(testNums.Split(
+            Assert.Equal(expected, calculator.Operator(testNums.Split(
                 new[] { "\r\n", "\r", "\n", "," },
                 StringSplitOptions.None
-            )));
+            ), Operations.Add));
         }
 
-        [Fact (Skip = "not used")]
+        [Fact]
         public void TestAddLimited()
         {
-            string testNums = "2,1001,6";
-            string expected = "8";
+            var testNums = "2,1001,6";
+            var expected = "8";
 
             var calculator = new CustomCalc();
 
-            Assert.Equal(expected, calculator.Add(testNums.Split(',')));
+            Assert.Equal(expected, calculator.Operator(testNums.Split(','), Operations.Add));
         }
 
-        [Fact (Skip = "not used")]
+        [Fact]
         public void TestAddCustomDelim()
         {
-            string testNums = "//#\n2#5";
-            string expected = "7";
+            var testNums = "//#\n2#5";
+            var expected = "7";
 
             var calculator = new CustomCalc();
 
-            Assert.Equal(expected, calculator.Add(calculator.CustomSplit(testNums)));
+            Assert.Equal(expected, calculator.Operator(calculator.CustomSplit(testNums), Operations.Add));
         }
 
-        [Fact (Skip = "not used")]
+        [Fact]
         public void TestAddCustomDelim1()
         {
-            string testNums = "//,\n2,ff,100";
-            string expected = "102";
+            var testNums = "//,\n2,ff,100";
+            var expected = "102";
 
             var calculator = new CustomCalc();
 
-            Assert.Equal(expected, calculator.Add(calculator.CustomSplit(testNums)));
+            Assert.Equal(expected, calculator.Operator(calculator.CustomSplit(testNums), Operations.Add));
         }
 
         [Fact]
         public void TestAddCustomDelimNLength()
         {
-            string testNums = "//[***]\n11***22***33";
-            string expected = "66";
+            var testNums = "//[***]\n11***22***33";
+            var expected = "66";
 
             var calculator = new CustomCalcNLengthNDelim();
 
-            Assert.Equal(expected, calculator.Add(calculator.CustomSplit(testNums)));
+            Assert.Equal(expected, calculator.Operator(calculator.CustomSplit(testNums), Operations.Add));
         }
 
         [Fact]
         public void TestAddCustomDelimNLengthNDelim()
         {
-            string testNums = "//[*][!!][r9r]\n11r9r22*hh*33!!44";
-            string expected = "110";
+            var testNums = "//[*][!!][r9r]\n11r9r22*hh*33!!44";
+            var expected = "110";
 
             var calculator = new CustomCalcNLengthNDelim();
 
-            Assert.Equal(expected, calculator.Add(calculator.CustomSplit(testNums)));
+            Assert.Equal(expected, calculator.Operator(calculator.CustomSplit(testNums), Operations.Add));
         }
 
 

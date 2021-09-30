@@ -6,7 +6,6 @@ namespace Calc_Challenge
 {
     class BaseCalc : Calculator, ICustomSplit
     {
-
         public override string[] CustomSplit(string toSplit)
         {
             string[] numbers = toSplit.Split(

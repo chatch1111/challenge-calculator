@@ -13,7 +13,7 @@ namespace Calc_Challenge
         {
 
             string[] tempVal = toSplit.Split(
-                new[] { "\\n" },
+                new[] { "\\n" , "\n" },
                 StringSplitOptions.None
             );
 

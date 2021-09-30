@@ -1,39 +1,42 @@
 ﻿using System;
-using System.Linq;
+using System.Collections;
 using System.Text.RegularExpressions;
 
 namespace Calc_Challenge
 {
-    class Program
+    enum CalculatorType
     {
+        Base,
+        CustomDelim,
+        CustomDelimNLength
+    }
 
-        enum Calculators
-        {
-            Base,
-            CustomDelim,
-            CustomDelimNLength
-        }
-
-        
-
+    public enum Operations : int
+    {
+        Add = 0,
+        Subtract = 1,
+        Divide = 2,
+        Multiply = 3
+    }
+    class Program
+    {      
         static void Main(string[] args)
         {
 
             Calculator calculator;
             string[] numbers;
 
-
-            Calculators calc = getCalcType(args[0]);
-            //Calculators calc = getCalcType("//[***]\n11***22***33");
+            CalculatorType calculatorType = GetCalcType(args[0]);
+            //CalculatorType calculatorType = GetCalcType("4,-3,-2");
 
             try
             {
-                switch (calc)
+                switch (calculatorType)
                 {
-                    case Calculators.CustomDelim:
+                    case CalculatorType.CustomDelim:
                         calculator = new CustomCalc();
                         break;
-                    case Calculators.CustomDelimNLength:
+                    case CalculatorType.CustomDelimNLength:
                         calculator = new CustomCalcNLengthNDelim();
                         break;
                     default:
@@ -42,9 +45,9 @@ namespace Calc_Challenge
                 }
 
                 numbers = calculator.CustomSplit(args[0]);
-                //numbers = calculator.CustomSplit("//[***]\n11***22***33");
+                //numbers = calculator.CustomSplit("4,-3,-2");
 
-                Console.WriteLine(calculator.Add(numbers));
+                Console.WriteLine(calculator.Operator(numbers, Operations.Subtract));
             }
             catch(Exception e)
             {
@@ -52,28 +55,28 @@ namespace Calc_Challenge
             }
         }
 
-        private static Calculators getCalcType(string input)
+        private static CalculatorType GetCalcType(string input)
         {
 
-            string pattern = @"(?<=//).+?(?=\\n)";
+            var pattern = @"(?<=//).+?(?=\\n)";
 
-            Regex regex = new Regex(pattern);
+            var regex = new Regex(pattern);
 
-            Match match = regex.Match(input);
+            var match = regex.Match(input);
 
             if(match.Success)
             {
                 if(match.ToString().Length == 1)
                 {
-                    return Calculators.CustomDelim;
+                    return CalculatorType.CustomDelim;
                 }
                 else
                 {
-                    return Calculators.CustomDelimNLength;
+                    return CalculatorType.CustomDelimNLength;
                 }
             }
 
-            return Calculators.Base;
+            return CalculatorType.Base;
         }
     }
 }
